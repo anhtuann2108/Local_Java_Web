@@ -22,17 +22,17 @@ public class HelloServlet extends HttpServlet{
 		// TODO Auto-generated method stub
 		super.service(req, resp);
 		
-		System.out.println("Phuong thuc cua request"+req.getMethod());
+		System.out.println("Phuong thuc cua request "+req.getMethod());
 	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		resp.setContentType("text/xml");
+		resp.setContentType("text/html");
 		
-		PrintWriter writter = resp.getWriter();
+		PrintWriter writer = resp.getWriter();
 		
-		writter.println("<h1>Xin Chao Servlet");
+		writer.println("<h1>Xin Chao Servlet</b>");
 		
-		writter.close();
+		writer.close();
 	}
 }
