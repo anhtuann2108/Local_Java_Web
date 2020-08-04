@@ -30,4 +30,8 @@
   		<servlet-name>ConfigServlet</servlet-name>
   		<url-pattern>/testConfig</url-pattern>
   </servlet-mapping>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/handler</location>
+  </error-page>
 </web-app>
