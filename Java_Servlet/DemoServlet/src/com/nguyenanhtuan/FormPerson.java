@@ -16,7 +16,7 @@ public class FormPerson extends HttpServlet{
 		
 		PrintWriter out = resp.getWriter();
 		
-		out.println("<form action='/DemoServlet/add-user' method='get'>");
+		out.println("<form action='/DemoServlet/add-user' method='post'>");
 		out.println("Name: <input type='text' name='name'>");
 		out.println("Age: <input type='text' name='age'>");
 		out.println("Address: <input type='text' name='address'>");
