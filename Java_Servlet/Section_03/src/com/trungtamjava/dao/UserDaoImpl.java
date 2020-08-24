@@ -71,13 +71,13 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public List<User> search(String name) {
+	public List<User> search(int id) {
 		List<User> users = new ArrayList<User>();
 		Connection connection = JDBCConnection.getJDBCConnection();
-		String sql = "Select * From User where name = ?";
+		String sql = "Select * From User where id = ?";
 		try {
 			PreparedStatement prepareStatement = connection.prepareStatement(sql);
-			prepareStatement.setString(1, "%" + name + "%");
+			prepareStatement.setInt(1, id);
 
 			ResultSet rs = prepareStatement.executeQuery();
 			while (rs.next()) {

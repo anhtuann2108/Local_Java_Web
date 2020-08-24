@@ -35,8 +35,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> search(String name) {
-		return userDao.search(name);
+	public List<User> search(int id) {
+		return userDao.search(id);
 	}
 
 	@Override

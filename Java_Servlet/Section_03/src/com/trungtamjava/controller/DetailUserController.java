@@ -16,17 +16,22 @@ import com.trungtamjava.model.User;
 import com.trungtamjava.service.UserService;
 import com.trungtamjava.service.UserServiceImpl;
 
-@WebServlet(urlPatterns = { "/user-list" })
-public class UserListController extends HttpServlet {
+@WebServlet(urlPatterns = {"/detail-user"})
+public class DetailUserController extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 
-		PrintWriter output = resp.getWriter();
+		PrintWriter print = resp.getWriter();
+
+		User user = new User();
+
+		user.setId(Integer.parseInt(req.getParameter("idDetail")));
 
 		UserService userService = new UserServiceImpl();
+		
 
-		output.println("<table style=\"border: 1px solid black;\n"
+		print.println("<table style=\"border: 1px solid black;\n"
 				+ "  border-collapse: collapse; border-bottom-style:none;\">\n" + "  <tr>\n"
 				+ "    <th style=\"border: 1px solid black;\n"
 				+ "  border-collapse: collapse; text-align: left; padding: 5px;\n"
@@ -37,10 +42,10 @@ public class UserListController extends HttpServlet {
 				+ "  <th style=\"border: 1px solid black;\n"
 				+ "  border-collapse: collapse; text-align: center;padding: 5px;\n"
 				+ "  width: 10rem; border-bottom-style:none;\">Age</th>\n" + "  </tr>\n" + "</table>");
-		List<User> users = userService.UserList();
+		List<User> users = userService.search(user.getId());
 
 		for (User userWeb : users) {
-			output.println("<table style=\"border: 1px solid black;\n" + "  border-collapse: collapse; \" >\n"
+			print.println("<table style=\"border: 1px solid black;\n" + "  border-collapse: collapse; \" >\n"
 					+ "  <tr>\n" + "    <th style=\"border: 1px solid black;\n"
 					+ "  border-collapse: collapse; text-align: left; padding: 5px;\n" + "  width: 10rem; \"> "
 					+ userWeb.getId() + " </th>\n" + "    <td style=\"border: 1px solid black;\n"
@@ -49,10 +54,8 @@ public class UserListController extends HttpServlet {
 					+ "  border-collapse: collapse; padding: 5px;\n" + "  width: 10rem; \">" + userWeb.getAge()
 					+ "</td>\n" + " </tr>" + "</table>");
 		}
+		print.println("<a href=\"/Section_03/user-list\">User List</a>");
+		print.close();
 
-		output.println("<a href=\"/Section_03/form-submit\">Add Form User</a>");
-		
-		output.close();
 	}
-
 }

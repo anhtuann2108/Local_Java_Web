@@ -13,7 +13,7 @@ public interface UserService {
 
 	void infor(User user);
 
-	List<User> search(String name);
+	List<User> search(int id);
 
 	List<User> UserList();
 }
