@@ -1,4 +1,4 @@
-package com.trungtamjava.controller;
+ package com.trungtamjava.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -84,12 +84,12 @@ public class Login extends HttpServlet{
 
 			httpSession.setAttribute("user", user);
 			if( user.getRole().equals("admin")) {
-				resp.sendRedirect("/Section_05/admin/main");
+				resp.sendRedirect("/Section_05/admin/maini");
 			}else {
-				resp.sendRedirect("/Section_05/member/welcome");
+				resp.sendRedirect("/Section_05/user/welcome");
 			}
 		}else {
-			resp.sendRedirect("/Section_05/login");
+			resp.sendRedirect("/Section_05/Login");
 		}
 	}
 }

@@ -3,7 +3,7 @@
 <%@page import="com.trungtamjava.service.UserServiceImpl"%>
 <%@page import="com.trungtamjava.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-	<h1> User Information</h1>
+	<h1>List User</h1>
 	<%
 	UserService userService = new UserServiceImpl();
 	List<User> userList = userService.findAllUser();
@@ -29,9 +29,7 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>Username</th>
-			<th>Email</th>
-			<th>Phone</th>
-			<th>About</th>
+			<th>Edit</th>
 		</tr>
 		</thead>
 		<%
@@ -54,20 +52,7 @@
 					user.getUsername()
 				%>
 			</td>
-			<td>
-				<%=
-					user.getEmail()
-				%>
-			</td>
-			<td>
-				<%=
-					user.getPhone()
-				%>
-			</td>
-			<td>
-				<%=
-					user.getAbout()
-				%>
+			<td><a href ="updateUser.jsp?id=<%=user.getId()%>"> Update </a> | <a href ="deleteUser.jsp?id=<%=user.getId()%>"> Delete </a> | <a href ="detailUser.jsp?id=<%=user.getId()%>"> Detail </a>
 			</td>
 		</tr>
 		<%
@@ -75,5 +60,8 @@
 		%>
 		</tbody>
 	</table>
+	<h1><a href="/addUser.jsp">Add User</a></h1>
+	Log out Account <a href='/Section_06/login/logout.jsp'>Logout</a>
 	</div>
 </body>
+</html>

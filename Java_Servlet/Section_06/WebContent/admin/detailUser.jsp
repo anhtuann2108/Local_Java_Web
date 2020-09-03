@@ -3,7 +3,7 @@
 <%@page import="com.trungtamjava.service.UserServiceImpl"%>
 <%@page import="com.trungtamjava.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +18,11 @@
 </head>
 <body>
 	<div class="container">
-	<h1>List User</h1>
+	<h1> User Information</h1>
 	<%
+	int id = Integer.valueOf(request.getParameter("id"));
 	UserService userService = new UserServiceImpl();
-	List<User> userList = userService.findAllUser();
+	User user = userService.findById(id);
 	%>
 	<table class="table">
 	  <thead>
@@ -29,12 +30,11 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>Username</th>
-			<th>Edit</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>About</th>
 		</tr>
 		</thead>
-		<%
-			for (User user : userList) {
-		%>
 		<tbody>
 		<tr>
 			<td>
@@ -52,14 +52,23 @@
 					user.getUsername()
 				%>
 			</td>
-			<td><a href ="updateUser.jsp?id=<%=user.getId()%>"> Update </a> | <a href ="deleteUser.jsp?id=<%=user.getId()%>"> Delete </a> | <a href ="detailUser.jsp?id=<%=user.getId()%>"> Detail </a>
+			<td>
+				<%=
+					user.getEmail()
+				%>
+			</td>
+			<td>
+				<%=
+					user.getPhone()
+				%>
+			</td>
+			<td>
+				<%=
+					user.getAbout()
+				%>
 			</td>
 		</tr>
-		<%
-			}
-		%>
 		</tbody>
 	</table>
 	</div>
 </body>
-</html>

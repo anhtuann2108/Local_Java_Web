@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1><a href="user/addUser.jsp">Add User</a></h1>
-<h1><a href="user/listUser.jsp">ListUser</a></h1>
+<h1><a href="admin/addUser.jsp">Add User</a></h1>
+<h1><a href="admin/listUser.jsp">ListUser</a></h1>
+<h1><a href="login/login.jsp">Login</a></h1>
 </body>
 </html>

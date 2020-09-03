@@ -129,7 +129,7 @@ public class UserDaoImpl implements UserDao{
 	public User findbyName(String name) {
 		User user = new User();
 		Connection connection = JDBCConnection.getJDBCConnection();
-		String sql = "Select * From User where name = ?";
+		String sql = "Select * From User where username = ?";
 		try {
 			PreparedStatement prepareStatement = connection.prepareStatement(sql);
 			prepareStatement.setString(1, name);

@@ -7,5 +7,5 @@
 	UserService userService = new UserServiceImpl();
 	userService.deleteUser(id);
 	
-	response.sendRedirect("/Section_06/user/listUser.jsp");
+	response.sendRedirect("/Section_06/admin/listUser.jsp");
 %>

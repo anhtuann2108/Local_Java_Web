@@ -1,6 +1,5 @@
 package com.trungtamjava.filter;
-
-import java.io.IOException; 
+import java.io.IOException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -12,10 +11,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.trungtamjava.model.User;
 
-@WebFilter(urlPatterns = {"/admin/*"})
-public class AdminFilter implements Filter{
+import com.trungtamjava.model.User;
+@WebFilter(urlPatterns = {"/user/*"})
+public class UserFilter implements Filter{
 
 	@Override
 	public void destroy() {
@@ -30,15 +29,16 @@ public class AdminFilter implements Filter{
 		HttpServletResponse httpResp = (HttpServletResponse) response;
 		HttpSession httpSession = httpReq.getSession();
 		Object obj = httpSession.getAttribute("user");
-		if(obj != null && ((User) obj).getRole().equals("admin")){
+		if(obj != null && ((User) obj).getRole().equals("Role_User")){
 			chain.doFilter(request, response);
 		}else {
-			httpResp.sendRedirect("/Section_05/login");
+			httpResp.sendRedirect("/Section_06/login/login.jsp");
 		}
+		
 	}
 
 	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
+	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		
 	}
