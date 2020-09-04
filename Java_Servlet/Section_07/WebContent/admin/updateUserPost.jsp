@@ -28,10 +28,9 @@
 	user.setAbout(about);
 	user.setFavourites(fav);
 	user.setRole(role);
-	user.setAvatar("../images/images.jpg");
+
+	userService.updateUser(user);
 	
-	userService.addUser(user);
-	
-	response.sendRedirect("/Section_06/user/listUser.jsp");
+	response.sendRedirect("/Section_06/admin/listUser.jsp");
 	
 %>

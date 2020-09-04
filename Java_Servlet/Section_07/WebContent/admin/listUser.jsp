@@ -60,7 +60,7 @@
 		%>
 		</tbody>
 	</table>
-	<h1><a href="/Section_06/admin/addUser.jsp">Add User</a></h1>
+	<h1><a href="/addUser.jsp">Add User</a></h1>
 	Log out Account <a href='/Section_06/login/logout.jsp'>Logout</a>
 	</div>
 </body>

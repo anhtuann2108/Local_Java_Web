@@ -12,7 +12,6 @@
 	String phone = request.getParameter("phone");
 	String about = request.getParameter("about");
 	String[] favourites = request.getParameterValues("favourites");
-	String role = request.getParameter("role");
 	String fav ="";
 	for(String f : favourites){
 		fav += f + ",";
@@ -27,11 +26,11 @@
 	user.setPhone(phone);
 	user.setAbout(about);
 	user.setFavourites(fav);
-	user.setRole(role);
+	user.setRole("Role_User");
 	user.setAvatar("../images/images.jpg");
 	
 	userService.addUser(user);
 	
-	response.sendRedirect("/Section_06/user/listUser.jsp");
+	response.sendRedirect("/Section_06/login/login.jsp");
 	
 %>
