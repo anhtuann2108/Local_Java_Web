@@ -17,13 +17,13 @@
         <div class="content">
             <div class="sidebar">
                 <div class="avatar">
-                    <img src="/Section_07_MVC/images/${user.imageAvatar}" alt="avatar">
+                    <img src="/Section_07_MVC/dowload?image=${user.imageAvatar}" alt="avatar">
                 </div>
                 <div class="hobby">
                     <ul>
-                        <li>Name:${loginUser.name}</li>
-                        <li>Username:${loginUser.username}</li>
-                        <li>Email:${loginUser.email }</li>
+                        <li>Name:${user.name}</li>
+                        <li>Username:${user.username}</li>
+                        <li>Email:${user.email }</li>
                         <li>Phone:${user.phone }</li>
                         <li>Favourites:${user.favourites }</li>
                     </ul>
