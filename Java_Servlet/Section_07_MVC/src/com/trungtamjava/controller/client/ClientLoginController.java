@@ -1,4 +1,4 @@
-package com.trungtamjava.controller;
+package com.trungtamjava.controller.client;
 
 import java.io.IOException;
 
@@ -31,9 +31,14 @@ public class ClientLoginController extends HttpServlet{
 		if(user != null && password.equals(user.getPassword())){
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", user);
-			resp.sendRedirect(req.getContextPath()+"/user/welcome");
+			if(user.getRole().equals("Role_User")) {
+				resp.sendRedirect(req.getContextPath()+"/user/welcome");
+			}
+			else if (user.getRole().equals("Role_Admin")) {
+				resp.sendRedirect(req.getContextPath()+"/admin/welcome");
+			}
 		}else {
-			resp.sendRedirect("/Section_07_MVC/login?e=1");
+			resp.sendRedirect(req.getContextPath()+"/login?e=1");
 		}
 	}
 }

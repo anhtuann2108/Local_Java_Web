@@ -1,4 +1,4 @@
-package com.trungtamjava.controller;
+package com.trungtamjava.controller.client;
 
 import java.io.File;
 import java.io.IOException;

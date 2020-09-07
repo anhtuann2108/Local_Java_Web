@@ -1,4 +1,4 @@
-package com.trungtamjava.controller;
+package com.trungtamjava.controller.admin;
 
 import java.io.IOException;
 
@@ -12,18 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.trungtamjava.model.User;
 import com.trungtamjava.service.UserService;
 import com.trungtamjava.serviceimpl.UserServiceImpl;
-@WebServlet(urlPatterns = {"/user/update"})
-public class ClientUpdateController extends HttpServlet{
+@WebServlet(urlPatterns = {"/admin/addUser"})
+public class AdminAddUser extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int id = Integer.valueOf(req.getParameter("id"));
-		UserService userService  = new UserServiceImpl();
-		User user = userService.findById(id);
-		req.setAttribute("updateUser", user);
-		RequestDispatcher dispatcher =req.getRequestDispatcher("/View/Client/update.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Admin/addUser.jsp");
 		dispatcher.forward(req, resp);
-		
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -51,9 +45,10 @@ public class ClientUpdateController extends HttpServlet{
 		user.setAbout(about);
 		user.setFavourites(fav);
 		user.setRole(role);
-
-		userService.updateUser(user);
+		user.setImageAvatar(req.getContextPath()+"/images/images.jpg");
 		
-		resp.sendRedirect(req.getContextPath()+"/user/welcome");
+		userService.addUser(user);
+		
+		resp.sendRedirect(req.getContextPath()+"/admin/welcome");
 	}
 }

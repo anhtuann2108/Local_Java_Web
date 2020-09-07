@@ -13,38 +13,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.trungtamjava.service.UserService;
-import com.trungtamjava.serviceimpl.UserServiceImpl;
-
-@WebFilter(urlPatterns = { "/user/*" })
-public class UserFilter implements Filter {
+import com.trungtamjava.model.User;
+@WebFilter(urlPatterns = {"/admin/*"})
+public class AdminFilter implements Filter{
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		HttpServletRequest req = (HttpServletRequest) arg0;
-		HttpServletResponse resp = (HttpServletResponse) arg1;
+		HttpServletRequest req = (HttpServletRequest) request;
+		HttpServletResponse resp = (HttpServletResponse) response;
 
 		HttpSession session = req.getSession();
 
 		Object obj = session.getAttribute("loginUser");
 
-		if (obj != null ) {
-			arg2.doFilter(arg0, arg1);
+		if (obj != null  && ((User)obj).getRole().equals("Role_Admin")) {
+			chain.doFilter(request, response);
 		} else {
 			resp.sendRedirect(req.getContextPath() + "/login");
 		}
+		
 	}
 
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-
+	public void init(FilterConfig filterConfig) throws ServletException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

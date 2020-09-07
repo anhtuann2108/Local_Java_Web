@@ -13,22 +13,22 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/anhtu/Desktop/Java_App/mysql-connector-java-5.1.49/mysql-connector-java-5.1.49.jar">
+	<classpathentry kind="lib" path="C:/Users/anhtu/Desktop/Java_App/buidpath/commons-fileupload-1.4.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/anhtu/Desktop/Java_App/commons-fileupload-1.4.jar">
+	<classpathentry kind="lib" path="C:/Users/anhtu/Desktop/Java_App/buidpath/commons-io-2.7.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/anhtu/Desktop/Java_App/commons-io-2.7.jar">
+	<classpathentry kind="lib" path="C:/Users/anhtu/Desktop/Java_App/buidpath/jstl-1.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/anhtu/Desktop/Java_App/jstl-1.2.jar">
+	<classpathentry kind="lib" path="C:/Users/anhtu/Desktop/Java_App/buidpath/mysql-connector-java-5.1.49.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
