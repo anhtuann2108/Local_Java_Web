@@ -1,0 +1,128 @@
+package com.trungtamjava.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.trungtamjava.model.Product;
+
+
+
+public class ProductDaoImpl implements ProductDao{
+
+	@Override
+	public List<Product> listProduct() {
+		List<Product> productList = new ArrayList<Product>();
+		Product product = new Product();
+		Connection connection = JDBCConnection.getJDBCConnection();
+		String sql = "Select * From Product";
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+
+			ResultSet rs = prepareStatement.executeQuery();
+			while (rs.next()) {
+				product = rowMap(rs);
+				productList.add(product);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return productList;
+	}
+
+	@Override
+	public void addProduct(Product product) {
+		Connection connection = JDBCConnection.getJDBCConnection();
+
+		String sql = "Insert into Product (id,productname,description,price,image) values (?,?,?,?,?)";
+
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+			
+			prepareStatement.setInt(1, product.getId());
+			prepareStatement.setString(2, product.getProductname());
+			prepareStatement.setString(3, product.getDescription());
+			prepareStatement.setDouble(4, product.getPrice());
+			prepareStatement.setString(5, product.getImage());
+			
+			prepareStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteProduct(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	private Product rowMap(ResultSet rs) throws SQLException {
+		Product product = new Product();
+		product.setId(rs.getInt("id"));
+		product.setProductname(rs.getString("productname"));
+		product.setDescription(rs.getString("description"));
+		product.setPrice(Double.parseDouble(rs.getString("price")));
+		product.setImage(rs.getString("image"));
+		
+		return product;
+	}
+
+	@Override
+	public List<Product> search(int id) {
+		List<Product> productList = new ArrayList<Product>();
+		Connection connection = JDBCConnection.getJDBCConnection();
+		String sql = "Select product.ProductName,product.Price,product.Description,product.Image,product.Id"
+				+ " from product inner join category"
+				+ " on product.Category = category.ID where Category.id = ?";
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setInt(1,id);
+
+			ResultSet rs = prepareStatement.executeQuery();
+			while (rs.next()) {
+				Product product = rowMap(rs);
+				productList.add(product);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return productList;
+		
+	}
+
+	@Override
+	public List<Product> search(String name) {
+		List<Product> productList = new ArrayList<Product>();
+		Connection connection = JDBCConnection.getJDBCConnection();
+		String sql = "Select * From Product where productname like ?";
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setString(1, "%"+name+"%");
+
+			ResultSet rs = prepareStatement.executeQuery();
+			while (rs.next()) {
+				Product product = rowMap(rs);
+				productList.add(product);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return productList;
+		
+	}
+
+}

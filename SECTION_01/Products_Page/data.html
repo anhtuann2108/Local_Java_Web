@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const getData = ()=>{
+            fetch("http://localhost:8080/Section_08_MVC/product")
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log(json);
+            });
+        }
+        getData();
+    </script>
+    
+</body>
+</html>
