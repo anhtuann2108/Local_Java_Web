@@ -15,6 +15,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.trungtamjava.model.Category;
 import com.trungtamjava.model.Product;
 import com.trungtamjava.service.ProductService;
 import com.trungtamjava.service.ProductServiceImpl;
@@ -56,7 +57,12 @@ public class AddProductController extends HttpServlet{
 					String description = item.getString();
 					product.setDescription(description);
 				}
-	
+				if( item.getFieldName().equals("categoryId")) {
+					String categoryId = item.getString();
+					Category category = new Category();
+					category.setId(Integer.parseInt(categoryId));
+					product.setCategory(category);
+				}
 				if (item.getFieldName().equals("imageFile")) {
 				
 					if (item.getSize() > 0) {

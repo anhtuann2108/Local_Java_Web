@@ -67,6 +67,13 @@
             				<input class="inputBox" type="text" value="${product.price}" name="price" required>
             				<label><b>Description</b></label>
            					<input class="inputBox" type="text" value="${product.description}" name="description" required>
+           					<label><b>Category ID</b></label>
+            				<select name="categoryId">
+            				<c:forEach items="${categoryList}" var="category">
+            					<option value="${category.id}">${category.nameCate}</option>
+            				</c:forEach>	
+            				</select>
+            				</br>
  							<label><b>Image</b></label>
  							<img src="/Section_08_MVC/dowload?image=${product.image}" alt="Image" class="images" width="100px" height="100px">
             				<input class="inputBox" type="file" name="imageFile" accept="image/*">

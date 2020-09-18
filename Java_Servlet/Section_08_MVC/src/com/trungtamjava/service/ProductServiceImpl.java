@@ -24,8 +24,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public void updateProduct(Product product) {
-		// TODO Auto-generated method stub
-		
+		productDao.updateProduct(product);
 	}
 
 	@Override

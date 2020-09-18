@@ -38,7 +38,7 @@ public class ProductDaoImpl implements ProductDao{
 	public void addProduct(Product product) {
 		Connection connection = JDBCConnection.getJDBCConnection();
 
-		String sql = "Insert into Product (id,productname,description,price,image) values (?,?,?,?,?)";
+		String sql = "Insert into Product (id,productname,description,price,image,category) values (?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement prepareStatement = connection.prepareStatement(sql);
@@ -48,6 +48,7 @@ public class ProductDaoImpl implements ProductDao{
 			prepareStatement.setString(3, product.getDescription());
 			prepareStatement.setDouble(4, product.getPrice());
 			prepareStatement.setString(5, product.getImage());
+			prepareStatement.setInt(6, product.getCategory().getId());
 			
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -59,7 +60,26 @@ public class ProductDaoImpl implements ProductDao{
 
 	@Override
 	public void updateProduct(Product product) {
-		// TODO Auto-generated method stub
+		Connection connection = JDBCConnection.getJDBCConnection();
+
+		String sql = "Update Product set productname = ? , description = ? , price = ?, image = ? , category = ?  where id = ?";
+
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+
+			prepareStatement.setString(1, product.getProductname());
+			prepareStatement.setString(2, product.getDescription());
+			prepareStatement.setInt(3, product.getPrice());
+			prepareStatement.setString(4, product.getImage());
+			prepareStatement.setInt(5, product.getCategory().getId());
+			prepareStatement.setInt(6, product.getId());
+			
+
+			prepareStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

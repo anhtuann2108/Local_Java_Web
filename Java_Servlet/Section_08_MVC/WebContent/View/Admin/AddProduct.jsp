@@ -18,6 +18,8 @@
             <input type="text" placeholder="Enter Price" name="price" required>
             <label><b>Description</b></label>
             <input type="text" placeholder="Enter Description" name="description" required>
+            <label><b>Category ID</b></label>
+            <input type="text" placeholder="Enter Category ID" name="categoryId" required>
  			<label><b>Image</b></label>
             <input type="file" name="imageFile" accept="image/*">
         
