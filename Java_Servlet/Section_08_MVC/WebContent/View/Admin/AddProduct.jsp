@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Product</title>
+<link rel="stylesheet" type="text/css" href="/Section_08_MVC/css/style.css">
 </head>
 <body>
 	<form action="/Section_08_MVC/admin/addProduct" method="POST" enctype="multipart/form-data">

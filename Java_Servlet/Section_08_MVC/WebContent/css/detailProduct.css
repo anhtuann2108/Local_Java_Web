@@ -1,0 +1,53 @@
+
+.updateBox {
+    border: 3px solid lightblue;
+    margin: 10px auto;
+}
+.container{
+    padding: 20px;
+}
+.btnOut {
+	width:10%;
+	background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+}
+.inputOut{
+	width:89%;
+	border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+.inputBox{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+  }
+.myBtn {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+.btnBox {
+	background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
