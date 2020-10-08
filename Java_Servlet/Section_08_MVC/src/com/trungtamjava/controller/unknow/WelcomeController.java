@@ -1,4 +1,4 @@
-package com.trungtamjava.controller.client;
+package com.trungtamjava.controller.unknow;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,20 +16,20 @@ import com.trungtamjava.service.CategoryService;
 import com.trungtamjava.service.CategoryServiceImpl;
 import com.trungtamjava.service.ProductService;
 import com.trungtamjava.service.ProductServiceImpl;
-@WebServlet(urlPatterns = {"/user/searchById"})
-public class ClientSearchByCategoryIDController extends HttpServlet{
+@WebServlet(urlPatterns = {"/welcome"})
+public class WelcomeController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id = Integer.valueOf(req.getParameter("id"));
-		ProductService productService = new ProductServiceImpl();
-		List<Product> productList = productService.search(id);
-		req.setAttribute("productList",productList);
-		
 		CategoryService categoryService = new CategoryServiceImpl();
 		List<Category> categoryList = categoryService.categoryList();
 		req.setAttribute("categoryList", categoryList);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/welcomeUser.jsp");
+		ProductService productService = new ProductServiceImpl();
+		List<Product> productList = productService.listProduct();
+		req.setAttribute("productList", productList);
+		
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/welcome.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

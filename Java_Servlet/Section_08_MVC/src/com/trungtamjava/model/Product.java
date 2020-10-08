@@ -1,10 +1,11 @@
-package com.trungtamjava.model;
+ package com.trungtamjava.model;
 
 public class Product {
 	private int id;
 	private String productname;
 	private String description;
 	private int price;
+	private int quantity;
 	private String image;
 	private Category category;
 
@@ -14,6 +15,14 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public int getId() {

@@ -11,7 +11,7 @@
 <% String error = request.getParameter("e"); %>
 <body>
 	<c:if test="${param.e !=null }">
-		<p> Tai khoan hoac mat khau khong dung !!!</p>
+		<center><p>  Username or password wrong!!!</p></center>
 	</c:if>
     <form action="/Section_08_MVC/login" method="post">
         <div class="formcontainer">
@@ -35,7 +35,7 @@
                 <button type="button" class="btn">Cancel</button>
                 <button type="reset" class="btn">Reset</button>
                 <span class="psw">||<a href="#">Forgot password?</a></span>
-                <span class="psw"><a href="">Register</a></span>
+                <span class="psw"><a href="/Section_08_MVC/register">Register</a></span>
             </div>
         </div>
     </form>

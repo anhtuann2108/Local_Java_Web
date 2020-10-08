@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public void deleteProduct(int id) {
-		// TODO Auto-generated method stub
+		productDao.deleteProduct(id);
 		
 	}
 	@Override

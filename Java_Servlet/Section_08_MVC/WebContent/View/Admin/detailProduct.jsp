@@ -54,7 +54,12 @@
 								alt="Image" class="images" width="100px" height="100px">
 			</td>
 			<td>
-				<button class="myBtn" >Update</button>  <button class="btnBox">Delete</button> 
+				<button class="myBtn" >Update</button> 
+				<form action="/Section_08_MVC/admin/deleteProduct" method="get">
+					<input type="hidden" value="${product.id}" name="id">
+					<button class="btnBox" >Delete</button> 
+				</form>
+				
 				<div class="myModal">
   					<div class="modal-content">
     					<span class="close">&times;</span>
@@ -121,6 +126,7 @@
 			modal[index].style.display = 'none'
 		})
 	}
+	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
 		for(let item of modal){
 			if (event.target == item) {
@@ -129,7 +135,7 @@
 		}
 	}
 
-// When the user clicks anywhere outside of the modal, close it
+
 		
 </script>
 	

@@ -17,6 +17,6 @@ public class ClientLogoutController  extends HttpServlet{
 		
 		session.removeAttribute("loginUser");
 		
-		resp.sendRedirect(req.getContextPath() + "/login");
+		resp.sendRedirect(req.getContextPath() + "/welcome");
 	}
 }

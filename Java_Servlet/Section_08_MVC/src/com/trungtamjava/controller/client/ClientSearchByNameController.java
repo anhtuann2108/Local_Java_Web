@@ -29,7 +29,7 @@ public class ClientSearchByNameController extends HttpServlet{
 		List<Category> categoryList = categoryService.categoryList();
 		req.setAttribute("categoryList", categoryList);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/product-page.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/welcomeUser.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

@@ -17,8 +17,15 @@ import com.trungtamjava.service.UserServiceImpl;
 public class ClientLoginController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/login.jsp");
-		dispatcher.forward(req, resp);		
+		HttpSession session = req.getSession();
+		Object obj = session.getAttribute("loginUser");
+		if(obj!=null) {
+			resp.sendRedirect(req.getContextPath() +"/user/welcome");
+		}else {
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/login.jsp");
+			dispatcher.forward(req, resp);	
+		}
+			
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,7 +39,7 @@ public class ClientLoginController extends HttpServlet{
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser", user);
 			if(user.getRole().equals("Role_User")) {
-				resp.sendRedirect(req.getContextPath()+"/user/product");
+				resp.sendRedirect(req.getContextPath()+"/user/welcome");
 			}
 			else if (user.getRole().equals("Role_Admin")) {
 				resp.sendRedirect(req.getContextPath()+"/admin/welcome");

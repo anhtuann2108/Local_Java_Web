@@ -14,9 +14,6 @@ import com.trungtamjava.service.UserServiceImpl;
 public class AdminDeleteUser extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id = Integer.parseInt(req.getParameter("id"));
-		UserService userService = new UserServiceImpl();
-		userService.deleteUser(id);
-		resp.sendRedirect(req.getContextPath()+"/admin/welcome");
+		
 	}
 }

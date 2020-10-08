@@ -38,7 +38,7 @@ public class ProductDaoImpl implements ProductDao{
 	public void addProduct(Product product) {
 		Connection connection = JDBCConnection.getJDBCConnection();
 
-		String sql = "Insert into Product (id,productname,description,price,image,category) values (?,?,?,?,?,?)";
+		String sql = "Insert into Product (id,productname,description,price,image,category,quantity) values (?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement prepareStatement = connection.prepareStatement(sql);
@@ -49,6 +49,7 @@ public class ProductDaoImpl implements ProductDao{
 			prepareStatement.setDouble(4, product.getPrice());
 			prepareStatement.setString(5, product.getImage());
 			prepareStatement.setInt(6, product.getCategory().getId());
+			prepareStatement.setInt(7, product.getQuantity());
 			
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -85,7 +86,20 @@ public class ProductDaoImpl implements ProductDao{
 
 	@Override
 	public void deleteProduct(int id) {
-		// TODO Auto-generated method stub
+		Connection connection = JDBCConnection.getJDBCConnection();
+
+		String sql = "Delete FROM Product where id = ?";
+
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+
+			prepareStatement.setInt(1, id);
+
+			prepareStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	private Product rowMap(ResultSet rs) throws SQLException {
@@ -95,6 +109,7 @@ public class ProductDaoImpl implements ProductDao{
 		product.setDescription(rs.getString("description"));
 		product.setPrice(Integer.parseInt(rs.getString("price")));
 		product.setImage(rs.getString("image"));
+		product.setQuantity(rs.getInt("quantity"));
 		
 		return product;
 	}
@@ -103,7 +118,7 @@ public class ProductDaoImpl implements ProductDao{
 	public List<Product> search(int id) {
 		List<Product> productList = new ArrayList<Product>();
 		Connection connection = JDBCConnection.getJDBCConnection();
-		String sql = "Select product.ProductName,product.Price,product.Description,product.Image,product.Id"
+		String sql = "Select product.ProductName,product.Price,product.Description,product.Image,product.Id,product.quantity"
 				+ " from product inner join category"
 				+ " on product.Category = category.ID where Category.id = ?";
 		try {
