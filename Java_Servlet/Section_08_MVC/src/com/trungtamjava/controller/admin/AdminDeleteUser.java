@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.trungtamjava.service.UserService;
-import com.trungtamjava.service.UserServiceImpl;
+import com.trungtamjava.service.impl.UserServiceImpl;
 @WebServlet(urlPatterns = {"/admin/deleteUser"})
 public class AdminDeleteUser extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		int id = Integer.parseInt(req.getParameter("id"));
+		UserService userService = new UserServiceImpl();
+		userService.deleteUser(id);
+		resp.sendRedirect(req.getContextPath()+"/admin/welcome");
 	}
 }

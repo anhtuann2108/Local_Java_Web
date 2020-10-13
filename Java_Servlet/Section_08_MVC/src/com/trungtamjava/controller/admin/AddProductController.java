@@ -18,7 +18,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.trungtamjava.model.Category;
 import com.trungtamjava.model.Product;
 import com.trungtamjava.service.ProductService;
-import com.trungtamjava.service.ProductServiceImpl;
+import com.trungtamjava.service.impl.ProductServiceImpl;
 @WebServlet(urlPatterns = {"/admin/addProduct"})
 public class AddProductController extends HttpServlet{
 	@Override

@@ -19,6 +19,8 @@
 <!-- Custom styles for this template -->
 <link href="/Section_08_MVC/css/client/product-page.css"
 	rel="stylesheet">
+<link href="/Section_08_MVC/css/client/menu.css"
+	rel="stylesheet">
 </head>
 <body>
 	<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display: none" id="mySidebar">
@@ -33,17 +35,19 @@
 			<a href="/Section_08_MVC/searchById?id=${category.id}" class="w3-bar-item w3-button">${category.nameCate}</a> 
 		</c:forEach>
 	</div>
-
 	<div id="main">
-		<div class="w3-teal">
-			<button id="openNav" class="w3-button w3-teal w3-xlarge"
-				onclick="w3_open()">&#9776;</button>
-			<div class="w3-container">
-				<h1>Welcome</h1>
-				<a href="/Section_08_MVC/login" >Login</a>
-    			<a href="/Section_08_MVC/logout">Logout</a>
-			</div>
-		</div>
+		<div class="header">
+  	<h2>My Website</h2>
+  	<p>A Website created by me </p>
+	</div>
+	<ul>
+		<li style="float:left"><button id="openNav" class="w3-button w3-teal w3-xlarge"
+			onclick="w3_open()">&#9776;</button></li>
+	  	<li><a href="/Section_08_MVC/login">Login</a></li>
+	  	<li><a href="/Section_08_MVC/logout">Logout</a></li>
+	   	<li><a href="#news">Payment</a></li>
+	  	<li><a class="active" href="/Section_08_MVC/welcome">Home</a></li>
+	</ul>
 		<div class="container">
 			<div class="row">
 				<c:forEach items="${productList}" var="product">
@@ -65,8 +69,8 @@
 	</div>
 	<script>
 		function w3_open() {
-			document.getElementById("main").style.marginLeft = "25%";
-			document.getElementById("mySidebar").style.width = "25%";
+			document.getElementById("main").style.marginLeft = "17%";
+			document.getElementById("mySidebar").style.width = "17%";
 			document.getElementById("mySidebar").style.display = "block";
 			document.getElementById("openNav").style.display = 'none';
 		}

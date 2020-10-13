@@ -13,23 +13,30 @@ import javax.servlet.http.HttpServletResponse;
 import com.trungtamjava.model.Category;
 import com.trungtamjava.model.Product;
 import com.trungtamjava.service.CategoryService;
-import com.trungtamjava.service.CategoryServiceImpl;
 import com.trungtamjava.service.ProductService;
-import com.trungtamjava.service.ProductServiceImpl;
+import com.trungtamjava.service.impl.CategoryServiceImpl;
+import com.trungtamjava.service.impl.ProductServiceImpl;
 @WebServlet(urlPatterns = {"/welcome"})
 public class WelcomeController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		CategoryService categoryService = new CategoryServiceImpl();
-		List<Category> categoryList = categoryService.categoryList();
-		req.setAttribute("categoryList", categoryList);
+		HttpSession session = req.getSession();
+		Object obj = session.getAttribute("loginUser");
+		if(obj!=null) {
+			resp.sendRedirect(req.getContextPath() +"/user/welcome");
+		}else {
+			System.out.println("Are");
+			CategoryService categoryService = new CategoryServiceImpl();
+			List<Category> categoryList = categoryService.categoryList();
+			req.setAttribute("categoryList", categoryList);
+			
+			ProductService productService = new ProductServiceImpl();
+			List<Product> productList = productService.listProduct();
+			req.setAttribute("productList", productList);
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/welcome.jsp");
+			dispatcher.forward(req, resp);	
+		}
 		
-		ProductService productService = new ProductServiceImpl();
-		List<Product> productList = productService.listProduct();
-		req.setAttribute("productList", productList);
-		
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/welcome.jsp");
-		dispatcher.forward(req, resp);
 	}
 }

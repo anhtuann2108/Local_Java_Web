@@ -5,6 +5,9 @@ import java.util.List;
 import com.trungtamjava.model.Category;
 
 public interface CategoryService {
+	void add(Category category);
+	void update(Category updateCategory);
+	void delete(int id);
 	List<Category> categoryList();
-	List<Category> searchById(int id);
+	Category searchById(int id);
 }

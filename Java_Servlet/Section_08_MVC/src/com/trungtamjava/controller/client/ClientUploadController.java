@@ -16,7 +16,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.trungtamjava.model.User;
 import com.trungtamjava.service.UserService;
-import com.trungtamjava.service.UserServiceImpl;
+import com.trungtamjava.service.impl.UserServiceImpl;
 
 @WebServlet(urlPatterns = { "/user/upload" })
 public class ClientUploadController extends HttpServlet {

@@ -12,11 +12,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/Section_08_MVC/css/detailProduct.css">
 <link rel="stylesheet" type="text/css" href="/Section_08_MVC/css/BoxProductUpdate.css">
+<link href="/Section_08_MVC/css/admin/welcome.css" rel="stylesheet">
 <title>Detail Product</title>
 </head>
 <body>
 <body>
-	<div class="container">
+	<jsp:include page="/View/Common/menu.jsp"></jsp:include>
+	<div class="container" style="margin-left:15%;padding:1px 16px;height:1000px;">
 		<h1>List Product</h1>
 		<form action="/Section_08_MVC/admin/search" method="post">
 			<input class="inputOut" type="text" name="name" placeholder="Search..">
@@ -81,9 +83,8 @@
             				</br>
  							<label><b>Image</b></label>
  							<img src="/Section_08_MVC/dowload?image=${product.image}" alt="Image" class="images" width="100px" height="100px">
-            				<input class="inputBox" type="file" name="imageFile" accept="image/*">
-     
-            				<button class="btnBox" type="submit">Add</button>
+            				<input class="inputBox" type="file" name="imageFile" accept="image/*" >
+            				<button class="btnBox" type="submit">Update</button>
         					</div>
     					</form>
   					    </div>
@@ -94,12 +95,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
-	
-	<h1>
-		<a href="/Section_08_MVC/admin/addUser">Add User</a>
-		<a href="/Section_08_MVC/admin/addProduct">Add Product</a>
-	</h1>
-	Log out Account <a href="/Section_08_MVC/logout">Logout</a>
+
 	</div>
 	<!-- JS------------------------------------------------------------------------ -->
 	<script>
@@ -135,8 +131,6 @@
 		}
 	}
 
-
-		
 </script>
 	
 </body>

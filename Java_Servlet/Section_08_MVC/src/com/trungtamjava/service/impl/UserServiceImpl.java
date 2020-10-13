@@ -1,10 +1,11 @@
-package com.trungtamjava.service;
+package com.trungtamjava.service.impl;
 
 import java.util.List;
 
 import com.trungtamjava.dao.UserDao;
-import com.trungtamjava.dao.UserDaoImpl;
+import com.trungtamjava.dao.impl.UserDaoImpl;
 import com.trungtamjava.model.User;
+import com.trungtamjava.service.UserService;
 
 public class UserServiceImpl implements UserService{
 	private UserDao userDao;

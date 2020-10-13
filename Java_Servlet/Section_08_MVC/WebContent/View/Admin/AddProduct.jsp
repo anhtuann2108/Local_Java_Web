@@ -5,11 +5,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Product</title>
-<link rel="stylesheet" type="text/css" href="/Section_08_MVC/css/style.css">
+<link href="/Section_08_MVC/css/admin/welcome.css" rel="stylesheet">
 </head>
 <body>
+	<jsp:include page="/View/Common/menu.jsp"></jsp:include>
 	<form action="/Section_08_MVC/admin/addProduct" method="POST" enctype="multipart/form-data">
-        <div class="container">
+        <div class="container" style="margin-left:15%;padding:1px 16px;height:1000px;">
             <h1>Add Product List</h1>
             <br>
             <label><b>Product Name</b></label>

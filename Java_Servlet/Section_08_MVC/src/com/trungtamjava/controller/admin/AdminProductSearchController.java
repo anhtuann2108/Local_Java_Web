@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.trungtamjava.model.Product;
 import com.trungtamjava.service.ProductService;
-import com.trungtamjava.service.ProductServiceImpl;
+import com.trungtamjava.service.impl.ProductServiceImpl;
 @WebServlet(urlPatterns = {"/admin/search"})
 public class AdminProductSearchController extends HttpServlet{
 	@Override

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.trungtamjava.model.User;
 import com.trungtamjava.service.UserService;
-import com.trungtamjava.service.UserServiceImpl;
+import com.trungtamjava.service.impl.UserServiceImpl;
 @WebServlet(urlPatterns = {"/login"})
 public class ClientLoginController extends HttpServlet{
 	@Override

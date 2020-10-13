@@ -17,7 +17,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.trungtamjava.model.Category;
 import com.trungtamjava.model.Product;
 import com.trungtamjava.service.ProductService;
-import com.trungtamjava.service.ProductServiceImpl;
+import com.trungtamjava.service.impl.ProductServiceImpl;
 @WebServlet(urlPatterns = {"/admin/updateProduct"})
 public class AdminUpdateProductController extends HttpServlet{
 	@Override
@@ -65,6 +65,7 @@ public class AdminUpdateProductController extends HttpServlet{
 						final String UPLOAD_FOLDER = "C:\\Users\\anhtu\\Desktop\\Github\\Local_Repo\\Local_Java_Web\\Java_Servlet\\Section_08_MVC\\WebContent\\image";
 						
 						String name = item.getName();
+						System.out.println(name);
 						int index = name.lastIndexOf(".");
 						String ext = name.substring(index);
 						

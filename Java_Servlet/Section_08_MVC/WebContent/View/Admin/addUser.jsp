@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/Section_08_MVC/css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/Section_08_MVC/css/admin/welcome.css" rel="stylesheet">
 <title>Add User</title>
 </head>
 <body>
-<form action="/Section_08_MVC/admin/addUser" method="POST">
-        <div class="container">
+	<jsp:include page="/View/Common/menu.jsp"></jsp:include>
+	<form action="/Section_08_MVC/admin/addUser" method="POST">
+        <div class="container" style="margin-left:15%;padding:1px 16px;height:600px;">
             <h1>Add List User</h1>
             <br>
            <label><b>ID</b></label>

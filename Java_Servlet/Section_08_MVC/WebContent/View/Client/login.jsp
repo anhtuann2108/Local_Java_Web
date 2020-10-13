@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Section_08_MVC/css/loginstyle.css">
     <title>Login Page</title>
 </head>
-<% String error = request.getParameter("e"); %>
+<% String error = request.getParameter("e");%>
 <body>
 	<c:if test="${param.e !=null }">
 		<center><p>  Username or password wrong!!!</p></center>

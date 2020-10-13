@@ -15,9 +15,9 @@ import com.google.gson.Gson;
 import com.trungtamjava.model.Category;
 import com.trungtamjava.model.Product;
 import com.trungtamjava.service.CategoryService;
-import com.trungtamjava.service.CategoryServiceImpl;
 import com.trungtamjava.service.ProductService;
-import com.trungtamjava.service.ProductServiceImpl;
+import com.trungtamjava.service.impl.CategoryServiceImpl;
+import com.trungtamjava.service.impl.ProductServiceImpl;
 @WebServlet(urlPatterns = {"/user/welcome"})
 public class ClientWelcomeController extends HttpServlet{
 	@Override

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.trungtamjava.service.ProductService;
-import com.trungtamjava.service.ProductServiceImpl;
+import com.trungtamjava.service.impl.ProductServiceImpl;
 
 @WebServlet(urlPatterns = {"/admin/deleteProduct"})
 public class AdminDeleteProductController extends HttpServlet{

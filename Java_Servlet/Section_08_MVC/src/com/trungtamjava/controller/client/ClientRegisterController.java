@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.trungtamjava.model.User;
 import com.trungtamjava.service.UserService;
-import com.trungtamjava.service.UserServiceImpl;
+import com.trungtamjava.service.impl.UserServiceImpl;
 @WebServlet(urlPatterns = {"/register"})
 public class ClientRegisterController extends HttpServlet{
 	@Override

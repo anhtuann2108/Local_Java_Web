@@ -1,5 +1,5 @@
 <%@page import="com.trungtamjava.model.User"%>
-<%@page import="com.trungtamjava.service.UserServiceImpl"%>
+<%@page import="com.trungtamjava.service.impl.UserServiceImpl"%>
 <%@page import="com.trungtamjava.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -9,14 +9,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link href="/Section_08_MVC/css/admin/welcome.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Edit Information</title>
 </head>
 <body>
-
-<form action="/Section_08_MVC/admin/updateUser" method="POST">
-        <div class="container">
+	<jsp:include page="/View/Common/menu.jsp"></jsp:include>
+	<form action="/Section_08_MVC/admin/updateUser" method="POST">
+        <div class="container" style="margin-left:15%;padding:1px 16px;height:1000px;">
             <h1>Edit User</h1>
             <br>
             <input type="hidden" name ="id" value="${updateUser.id }" >

@@ -1,4 +1,4 @@
-package com.trungtamjava.dao;
+package com.trungtamjava.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.trungtamjava.dao.JDBCConnection;
+import com.trungtamjava.dao.ProductDao;
 import com.trungtamjava.model.Product;
 
 

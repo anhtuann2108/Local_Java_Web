@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.trungtamjava.model.Category;
 import com.trungtamjava.model.Product;
 import com.trungtamjava.service.CategoryService;
-import com.trungtamjava.service.CategoryServiceImpl;
 import com.trungtamjava.service.ProductService;
-import com.trungtamjava.service.ProductServiceImpl;
+import com.trungtamjava.service.impl.CategoryServiceImpl;
+import com.trungtamjava.service.impl.ProductServiceImpl;
 @WebServlet(urlPatterns = {"/searchById"})
 public class SearchByCategoryIDController extends HttpServlet{
 	@Override

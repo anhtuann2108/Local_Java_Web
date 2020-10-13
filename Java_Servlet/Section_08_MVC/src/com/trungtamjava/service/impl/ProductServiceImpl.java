@@ -1,10 +1,11 @@
-package com.trungtamjava.service;
+package com.trungtamjava.service.impl;
 
 import java.util.List;
 
 import com.trungtamjava.dao.ProductDao;
-import com.trungtamjava.dao.ProductDaoImpl;
+import com.trungtamjava.dao.impl.ProductDaoImpl;
 import com.trungtamjava.model.Product;
+import com.trungtamjava.service.ProductService;
 
 public class ProductServiceImpl implements ProductService{
 	private ProductDao  productDao;
