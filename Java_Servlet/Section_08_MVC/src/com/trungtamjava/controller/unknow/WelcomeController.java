@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.trungtamjava.model.Category;
 import com.trungtamjava.model.Product;
@@ -25,7 +26,6 @@ public class WelcomeController extends HttpServlet{
 		if(obj!=null) {
 			resp.sendRedirect(req.getContextPath() +"/user/welcome");
 		}else {
-			System.out.println("Are");
 			CategoryService categoryService = new CategoryServiceImpl();
 			List<Category> categoryList = categoryService.categoryList();
 			req.setAttribute("categoryList", categoryList);

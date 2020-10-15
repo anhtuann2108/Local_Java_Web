@@ -1,5 +1,5 @@
 <%@page import="com.trungtamjava.model.User"%>
-<%@page import="com.trungtamjava.service.UserServiceImpl"%>
+<%@page import="com.trungtamjava.service.UserService"%>
 <%@page import="com.trungtamjava.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
