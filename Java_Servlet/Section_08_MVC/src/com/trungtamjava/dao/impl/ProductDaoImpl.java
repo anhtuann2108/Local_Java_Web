@@ -162,4 +162,44 @@ public class ProductDaoImpl implements ProductDao{
 		
 	}
 
+	@Override
+	public Product product(int id) {
+		Product product = null;
+		Connection connection = JDBCConnection.getJDBCConnection();
+		String sql = "Select * From Product where id = ?";
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setInt(1, id);
+
+			ResultSet rs = prepareStatement.executeQuery();
+			while (rs.next()) {
+				product = rowMap(rs);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return product;
+	}
+
+	@Override
+	public void updateProductQuantity(Product product) {
+		Connection connection = JDBCConnection.getJDBCConnection();
+
+		String sql = "Update Product set quantity = ?  where id = ?";
+
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+
+			prepareStatement.setInt(1, product.getQuantity());
+			prepareStatement.setInt(2, product.getId());
+
+			prepareStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }

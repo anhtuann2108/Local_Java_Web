@@ -41,5 +41,14 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> search(int id) {
 		return productDao.search(id);
 	}
+	@Override
+	public Product product(int id) {
+		return productDao.product(id);
+	}
+	@Override
+	public void updateProductQuantity(Product product) {
+		productDao.updateProductQuantity(product);
+		
+	}
 
 }

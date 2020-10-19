@@ -29,7 +29,6 @@
 .btn:hover {
   background-color: #ddd;
 }
-
 .btn.active {
   background-color: #666;
   color: white;
@@ -46,13 +45,11 @@
   width: 300px;
   height: 300px;
 }
-
 .price {
   color: grey;
   font-size: 22px;
 }
-
-.card myBtn {
+.myBtn {
   border: none;
   outline: 0;
   padding: 12px;
@@ -66,12 +63,21 @@
 .card button:hover {
   opacity: 0.7;
 }
-.card btnBoxModal {
+.btnBoxModal {
 	background-color: #4CAF50;
     color: white;
     text-align: center;
     padding: 12px 20px;
     margin: 8px 0;
     border: none;
+    width: 100px;
     cursor: pointer;
+    width: 100%;
 }
+.inputBox {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }

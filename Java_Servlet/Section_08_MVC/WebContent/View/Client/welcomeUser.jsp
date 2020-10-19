@@ -8,19 +8,12 @@
 <link rel="stylesheet" href="CSS/styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <title>Product-Page</title>
 <!-- Custom styles for this template -->
-<link href="/Section_08_MVC/css/client/product-page.css"
-	rel="stylesheet">
-<link href="/Section_08_MVC/css/client/menu.css"
-	rel="stylesheet">
+<link href="/Section_08_MVC/css/client/quantityBox.css" rel="stylesheet">
+<link href="/Section_08_MVC/css/client/menu.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/Section_08_MVC/css/BoxProductUpdate.css">
 </head>
 <body>
 	<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display: none" id="mySidebar">
@@ -44,11 +37,18 @@
 	<ul>
 		<li style="float:left"><button id="openNav" class="w3-button w3-teal w3-xlarge"
 			onclick="w3_open()">&#9776;</button></li>
+		<li><button id="myBtnBoxBill" class="w3-button w3-teal w3-xlarge"><i class="fa fa-shopping-cart"></i></button></li>
 	  	<li><a href="#">${loginUser.name }</a></li>
 	  	<li><a href="/Section_08_MVC/logout">Logout</a></li>
 	   	<li><a href="#news">Payment</a></li>
 	  	<li><a class="active" href="/Section_08_MVC/welcome">Home</a></li>
 	</ul>
+	<div id="mdBoxBill" class="modalBill">
+		  <div class="modal-content-bill">
+		   <p>NGUYEN ANH TUAN</p>
+		  </div>
+	</div>
+
 		<div class="container">
 			<div class="row">
 				<c:forEach items="${productList}" var="product">
@@ -59,9 +59,20 @@
 							<h1>${product.productname }</h1>
 							<p class="price">${product.price}VND</p>
 							<p>${product.description}</p>
-							<p>
-								<button>Add to Cart</button>
-							</p>
+							<p><button class="myBtn" >Add to Cart</button> </p>
+								<div class="myModal">
+  								<div class="modal-content">
+			    					<form class="updateBox" action="/Section_08_MVC/user/addBill" method="POST">
+				        				<div class="containerBox">
+				        					<input class="inputBox" type="hidden" value="${product.id}" name="id" required>
+				        					<input class="inputBox" type="hidden" value="${loginUser.id}" name="userid" required>
+				            				<label><b>Quantity</b></label>
+				            				<input class="inputBox" placeholder="Please enter quantity" type="text" name="quantity" required>
+				            				<button class="btnBoxModal" type="submit"> Add</button>
+				        				</div>
+			    					</form>
+			  					</div>
+								</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -80,6 +91,33 @@
 			document.getElementById("mySidebar").style.display = "none";
 			document.getElementById("openNav").style.display = "inline-block";
 		}
+		var modal = document.getElementsByClassName("myModal");
+		console.log(modal);	
+		// Get the button that opens the modal
+		var btns = document.getElementsByClassName("myBtn");
+		console.log(btns);
+		// When the user clicks the button, open the modal 
+	  
+	 	[...btns].forEach((item) => 
+		item.addEventListener('click', function(){
+			let index = [...btns].indexOf(item)
+			modal[index].style.display = 'block'
+		}))
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			for(let item of modal){
+				if (event.target == item) {
+				    item.style.display = "none";
+				  }
+			}
+		}
+	 var modalBill = document.getElementById("mdBoxBill");
+	 var btnBoxBill = document.getElementById("myBtnBoxBill");
+	 
+	 btnBoxBill.onclick = function() {
+	   modalBill.style.display = "block";
+	 }
+	
 	</script>
 </body>
 

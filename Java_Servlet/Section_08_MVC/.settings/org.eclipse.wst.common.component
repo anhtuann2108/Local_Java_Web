@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
     <wb-module deploy-name="Section_08_MVC">
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+                
         <property name="context-root" value="Section_08_MVC"/>
+                
         <property name="java-output-path" value="/Section_08_MVC/build/classes"/>
+            
     </wb-module>
+    
 </project-modules>
