@@ -34,8 +34,8 @@ public class AddBillController extends HttpServlet{
 			bill.setBuyer(buyser);
 			bill.setProduct(product);
 			bill.setPrice(product.getPrice());
-			bill.setPriceTotal(product.getPrice()*quantity);
 			bill.setQuantity(quantity);
+			bill.setPriceTotal(bill.getPrice()*bill.getQuantity());
 			Date date = new Date();
 			bill.setBuyDate(date.toString());
 			

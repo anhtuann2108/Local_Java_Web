@@ -52,7 +52,10 @@ public class AddProductController extends HttpServlet{
 					String price = item.getString();
 					product.setPrice(Integer.parseInt(price));
 				}
-			
+				if (item.getFieldName().equals("quantity")) {
+					String quantity = item.getString();
+					product.setQuantity(Integer.parseInt(quantity));
+				}
 				if (item.getFieldName().equals("description")) {
 					String description = item.getString();
 					product.setDescription(description);

@@ -8,7 +8,7 @@ public interface BillDao {
 	void create(Bill b);
 
 	void update(Bill b);
-
+	
 	void delete(int id);
 
 	Bill get(int id);

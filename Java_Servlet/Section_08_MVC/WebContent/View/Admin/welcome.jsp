@@ -15,13 +15,14 @@
 <link href="/Section_08_MVC/css/admin/welcome.css" rel="stylesheet">
 </head>
 <body>
+<% int i = 0; %>
 	<jsp:include page="/View/Common/menu.jsp"></jsp:include>
 	<div class="container" style="margin-left:15%;padding:1px 16px;height:1000px;">
 	<h1>List User</h1>
 	<table class="table">
 	  <thead>
 		<tr>
-			<th>ID</th>
+			<th>No.</th>
 			<th>Name</th>
 			<th>Username</th>
 			<th>Edit</th>
@@ -32,7 +33,7 @@
 		<c:forEach items="${userList}" var="user">
 		<tr>
 			<td>
-				${user.id}
+				<%=++i %>
 			</td>
 			<td>
 				${user.name }

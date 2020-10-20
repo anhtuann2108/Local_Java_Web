@@ -17,6 +17,8 @@
             <input type="text" placeholder="Enter Product Name" name="productname" required>
             <label><b>Price</b></label>
             <input type="text" placeholder="Enter Price" name="price" required>
+             <label><b>Quantity</b></label>
+            <input type="text" placeholder="Enter Quantity" name="quantity" required>
             <label><b>Description</b></label>
             <input type="text" placeholder="Enter Description" name="description" required>
             <label><b>Category ID</b></label>

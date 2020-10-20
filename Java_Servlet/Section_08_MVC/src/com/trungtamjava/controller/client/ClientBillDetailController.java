@@ -1,7 +1,6 @@
 package com.trungtamjava.controller.client;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.google.gson.Gson;
 import com.trungtamjava.dao.BillDao;
 import com.trungtamjava.dao.impl.BillDaoImpl;
 import com.trungtamjava.model.Bill;
@@ -23,13 +21,10 @@ import com.trungtamjava.service.CategoryService;
 import com.trungtamjava.service.ProductService;
 import com.trungtamjava.service.impl.CategoryServiceImpl;
 import com.trungtamjava.service.impl.ProductServiceImpl;
-@WebServlet(urlPatterns = {"/user/welcome"})
-public class ClientWelcomeController extends HttpServlet{
+@WebServlet(urlPatterns = {"/user/bill-detail"})
+public class ClientBillDetailController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//resp.setContentType("application/json");
-		//resp.addHeader("Access-Control-Allow-Origin","*");
-		
 		CategoryService categoryService = new CategoryServiceImpl();
 		List<Category> categoryList = categoryService.categoryList();
 		req.setAttribute("categoryList", categoryList);
@@ -51,11 +46,11 @@ public class ClientWelcomeController extends HttpServlet{
 		session.setAttribute("billList", billList);
 		session.setAttribute("total", totalBill);
 		
-		//Gson gson = new Gson();
-		//PrintWriter printWriter = resp.getWriter();
-		//printWriter.println(gson.toJson(categoryList));
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/welcomeUser.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/View/Client/billDetail.jsp");
 		dispatcher.forward(req, resp);
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 	}
 }

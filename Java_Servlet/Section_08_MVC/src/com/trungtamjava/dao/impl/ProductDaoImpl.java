@@ -11,8 +11,6 @@ import com.trungtamjava.dao.JDBCConnection;
 import com.trungtamjava.dao.ProductDao;
 import com.trungtamjava.model.Product;
 
-
-
 public class ProductDaoImpl implements ProductDao{
 
 	@Override
@@ -200,6 +198,29 @@ public class ProductDaoImpl implements ProductDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public Product findByBillId(int id) {
+		Product product = null;
+		Connection connection = JDBCConnection.getJDBCConnection();
+		String sql = "Select product.ProductName,product.Price,product.Description,product.Image,product.Id,product.quantity"
+				+ " from product inner join Bill"
+				+ " on product.ProductName = bill.product where bill.id = ?";
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(sql);
+			prepareStatement.setInt(1,id);
+
+			ResultSet rs = prepareStatement.executeQuery();
+			while (rs.next()) {
+				product = rowMap(rs);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return product;
 	}
 
 }

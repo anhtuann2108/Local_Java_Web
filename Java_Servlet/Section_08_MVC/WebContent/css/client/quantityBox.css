@@ -3,16 +3,22 @@
 }
 
 /* Create two equal columns that floats next to each other */
-.container{
-  margin: 0 auto;
-  width: 1200px;
-}
+
 .column {
   float: left;
-  width: 400px;
+  width: 30%;
   padding: 10px;
+  margin-right : 40px;
+  
+}
+.column:last-child{
+	margin-right:0;
 }
 /* Clear floats after the columns */
+.row{
+	margin: 0 auto;
+	width: 1200px;
+}
 .row:after {
   content: "";
   display: table;
@@ -42,8 +48,9 @@
   object-fit: cover;
 }
 .images{
-  width: 300px;
+  width: 100%;
   height: 300px;
+  object-fit:cover;
 }
 .price {
   color: grey;

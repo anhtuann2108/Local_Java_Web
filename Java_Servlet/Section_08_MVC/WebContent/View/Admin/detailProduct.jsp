@@ -16,7 +16,7 @@
 <title>Detail Product</title>
 </head>
 <body>
-<body>
+<% int i = 0 ; %>
 	<jsp:include page="/View/Common/menu.jsp"></jsp:include>
 	<div class="container" style="margin-left:15%;padding:1px 16px;height:1000px;">
 		<h1>List Product</h1>
@@ -27,9 +27,10 @@
 	<table class="table">
 	  <thead>
 		<tr>
-			<th>ID</th>
+			<th>No.</th>
 			<th>Name</th>
 			<th>Price</th>
+			<th>Quantity</th>
 			<th>Description</th>
 			<th>Image</th>
 			<th>Edit</th>
@@ -40,13 +41,16 @@
 		<c:forEach items="${productList}" var="product">
 		<tr>
 			<td>
-				${product.id}
+				<%= ++i %>
 			</td>
 			<td>
 				${product.productname }
 			</td>
 			<td>
 				${product.price} VND
+			</td>
+			<td>
+				 ${product.quantity}
 			</td>
 			<td>
 				${product.description}
@@ -64,7 +68,6 @@
 				
 				<div class="myModal">
   					<div class="modal-content">
-    					<span class="close">&times;</span>
     					<form class="updateBox" action="/Section_08_MVC/admin/updateProduct" method="POST" enctype="multipart/form-data">
         				<div class="container">
         					<input class="inputBox" type="hidden" value="${product.id}" name="id" required>
