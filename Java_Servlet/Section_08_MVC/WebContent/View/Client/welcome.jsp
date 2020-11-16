@@ -24,13 +24,13 @@
 	<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display: none" id="mySidebar">
 		<button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
 		
-			<form action="/Section_08_MVC/user/searchByName" method="post">
+			<form action="/Section_08_MVC/searchByName" method="post">
 			<input type="text" name="name" placeholder="Search.." style="margin-left:15px">
 			<button type="submit"><i class="fa fa-search"></i></button>
 			</form>
-		<a href="/Section_08_MVC/user/welcome" class="w3-bar-item w3-button">All Product</a> 
+		<a href="/Section_08_MVC/welcome" class="w3-bar-item w3-button">All Product</a> 
 		<c:forEach items="${categoryList}" var="category">
-			<a href="/Section_08_MVC/user/searchById?id=${category.id}" class="w3-bar-item w3-button">${category.nameCate}</a> 
+			<a href="/Section_08_MVC/searchById?id=${category.id}" class="w3-bar-item w3-button">${category.nameCate}</a> 
 		</c:forEach>
 	</div>
 
@@ -57,7 +57,7 @@
 							<img src="/Section_08_MVC/dowload?image=${product.image}"
 								alt="Image" class="images">
 							<h1>${product.productname }</h1>
-							<p class="price">${product.price}VND</p>
+							<p class="price">${product.price}¥</p>
 							<p>${product.description}</p>
 							<p><button class="myBtn" >Add to Cart</button> </p>
 								<div class="myModal">

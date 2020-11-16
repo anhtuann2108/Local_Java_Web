@@ -47,7 +47,7 @@
 				${product.productname }
 			</td>
 			<td>
-				${product.price} VND
+				${product.price} ¥
 			</td>
 			<td>
 				 ${product.quantity}

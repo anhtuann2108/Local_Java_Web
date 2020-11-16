@@ -29,6 +29,6 @@ public class AdminAddCategoryController extends HttpServlet{
 		CategoryService categoryService = new CategoryServiceImpl();
 		categoryService.add(category);
 		
-		resp.sendRedirect(req.getContextPath()+"/admin/welcome");
+		resp.sendRedirect(req.getContextPath()+"/admin/detailCategory");
 	}
 }

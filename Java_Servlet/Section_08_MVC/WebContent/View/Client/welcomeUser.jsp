@@ -56,7 +56,7 @@
 							<img src="/Section_08_MVC/dowload?image=${product.image}"
 								alt="Image" class="images">
 							<h1>${product.productname }</h1>
-							<p class="price">${product.price}VND</p>
+							<p class="price">${product.price}¥</p>
 							<p>${product.description}</p>
 							<p><button class="myBtn" >Add to Cart</button> </p>
 								<div class="myModal">
